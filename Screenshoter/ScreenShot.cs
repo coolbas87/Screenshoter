@@ -134,12 +134,12 @@ namespace Screenshoter
             this.Invalidate();
         }
 
-        private void ScreenShot_KeyDown(object sender, KeyEventArgs e)
+        private void ScreenShot_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
             }
-        }
+        } 
     }
 }
