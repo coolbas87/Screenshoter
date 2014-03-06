@@ -20,8 +20,8 @@ namespace Screenshoter
         public ScreenShot()
         {
             InitializeComponent();
-            this.Height = Screen.PrimaryScreen.Bounds.Height;
-            this.Width = Screen.PrimaryScreen.Bounds.Width;
+            this.Height = SystemInformation.VirtualScreen.Height;
+            this.Width = SystemInformation.VirtualScreen.Width;
             DoFullScreenshot();
             this.BackgroundImage = (Image)bmScreenshot;
         }
@@ -38,10 +38,11 @@ namespace Screenshoter
 
         private void DoFullScreenshot()
         {
-            bmScreenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            bmScreenshot = new Bitmap(SystemInformation.VirtualScreen.Width, SystemInformation.VirtualScreen.Height,
+                System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             Graphics graph = Graphics.FromImage(bmScreenshot);
-            graph.CopyFromScreen(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y,
-                0, 0, Screen.PrimaryScreen.Bounds.Size, CopyPixelOperation.SourceCopy);
+            graph.CopyFromScreen(SystemInformation.VirtualScreen.X, SystemInformation.VirtualScreen.Y,
+                0, 0, SystemInformation.VirtualScreen.Size, CopyPixelOperation.SourceCopy);
             Icon cursor = Icon.FromHandle(Cursors.Default.Handle);
             graph.DrawIcon(cursor, Cursor.Position.X, Cursor.Position.Y);
             bmCurrentScreenshot = new Bitmap(bmScreenshot);
