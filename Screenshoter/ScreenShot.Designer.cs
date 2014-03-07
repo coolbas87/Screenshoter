@@ -42,7 +42,6 @@
             this.ShowInTaskbar = false;
             this.Text = "ScreenShot";
             this.TopMost = true;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ScreenShot_Paint);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ScreenShot_KeyUp);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ScreenShot_MouseDown);
