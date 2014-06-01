@@ -71,6 +71,7 @@ namespace Screenshoter
 
         private void ScreenShot_MouseUp(object sender, MouseEventArgs e)
         {
+            Clipboard.Clear();
             Clipboard.SetImage(CropImage(bmCurrentScreenshot, screenRect));
             this.Close();
         }
